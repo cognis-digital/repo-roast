@@ -1,0 +1,23 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+[project]
+name = "cognis-repo-roast"
+version = "0.1.0"
+description = "An AI roasts and constructively critiques your repo"
+authors = [{name = "Cognis Digital", email = "suite@cognis.digital"}]
+license = {text = "LicenseRef-COCL-1.0"}
+requires-python = ">=3.10"
+readme = "README.md"
+classifiers = ["Development Status :: 4 - Beta", "License :: Other/Proprietary License"]
+[project.optional-dependencies]
+mcp = ["mcp>=1.0"]
+img = ["Pillow>=10"]
+dev = ["pytest>=8.0"]
+[project.urls]
+Homepage = "https://cognis.digital"
+Repository = "https://github.com/cognis-digital/repo-roast"
+[project.scripts]
+repo-roast = "repo_roast.cli:main"
+[tool.hatch.build.targets.wheel]
+packages = ["repo_roast"]

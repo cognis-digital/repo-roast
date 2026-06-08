@@ -1,1 +1,4 @@
-from repo_roast.cli import main\nimport sys\nsys.exit(main())\n
+import sys
+from repo_roast.cli import main
+
+sys.exit(main())

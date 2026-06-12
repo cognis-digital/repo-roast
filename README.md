@@ -12,7 +12,7 @@
 </div>
 
 ```bash
-pip install cognis-repo-roast
+pip install "git+https://github.com/cognis-digital/repo-roast.git"
 repo-roast .                 # uses a local model (uncensored-fleet) if running
 repo-roast . --no-llm        # heuristic-only roast, no model needed
 ```

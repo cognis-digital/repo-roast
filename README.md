@@ -17,6 +17,32 @@ repo-roast .                 # uses a local model (uncensored-fleet) if running
 repo-roast . --no-llm        # heuristic-only roast, no model needed
 ```
 
+## Usage — step by step
+
+1. **Install** the console script (PyPI name `cognis-repo-roast`, command `repo-roast`):
+   ```bash
+   pip install cognis-repo-roast
+   ```
+2. **Roast a repo.** The single positional argument is a path (defaults to `.`). With a local model running it uses the LLM; otherwise add `--no-llm`:
+   ```bash
+   repo-roast .                 # roast the current repo
+   repo-roast ../some-project --no-llm   # heuristic-only, no model
+   ```
+3. **Get machine-readable output** for scripting — `--format json` prints the score and roast as JSON:
+   ```bash
+   repo-roast . --no-llm --format json > roast.json
+   ```
+4. **Read the result.** The JSON object contains `score` (0–100) and `roast` (the text + fixes). Pull the score out, e.g.:
+   ```bash
+   python -c "import json;print(json.load(open('roast.json'))['score'])"
+   ```
+5. **Wire it into CI** to track repo hygiene over time:
+   ```yaml
+   - run: pip install cognis-repo-roast
+   - run: repo-roast . --no-llm --format json | tee roast.json
+   ```
+   Point it at any OpenAI-compatible endpoint via `ROAST_ENDPOINT` to enable the LLM roast in CI.
+
 ## Architecture
 
 ```mermaid

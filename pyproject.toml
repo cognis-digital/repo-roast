@@ -23,3 +23,6 @@ Repository = "https://github.com/cognis-digital/repo-roast"
 repo-roast = "repo_roast.cli:main"
 [tool.hatch.build.targets.wheel]
 packages = ["repo_roast"]
+
+[tool.hatch.metadata]
+allow-direct-references = true

@@ -1,0 +1,3 @@
+$ repo-roast-emit --version
+
+repo-roast 0.1.0

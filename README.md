@@ -17,6 +17,74 @@ repo-roast .                 # uses a local model (uncensored-fleet) if running
 repo-roast . --no-llm        # heuristic-only roast, no model needed
 ```
 
+
+<!-- cognis:example:start -->
+## 🔎 Example output
+
+Real, reproducible output from the tool — runs offline:
+
+```console
+$ repo-roast-emit --version
+repo-roast 0.1.0
+```
+
+```console
+$ repo-roast-emit --help
+usage: repo-roast [-h] [--version] [--no-llm] [--format {table,json}] [repo]
+
+Let an AI roast (and improve) your repo.
+
+positional arguments:
+  repo
+
+options:
+  -h, --help            show this help message and exit
+  --version             show program's version number and exit
+  --no-llm              heuristic roast only (no model)
+  --format {table,json}
+```
+
+> Blocks above are real `repo-roast` output — reproduce them from a clone.
+
+**Sample result format** _(illustrative values — run on your own data for real findings):_
+
+```
+{
+"timestamp": "2023-02-15T14:30:00Z",
+"platform": "stix",
+"findings": [
+  {
+    "id": "1234567890",
+    "title": "Suspicious Network Traffic",
+    "description": "Network traffic from an unknown IP address detected.",
+    "objects": [
+      {
+        "id": "obj-1",
+        "type": "indicator",
+        "name": "Suspicious IP Address",
+        "value": "192.0.2.1"
+      }
+    ]
+  },
+  {
+    "id": "2345678901",
+    "title": "Malware Detection",
+    "description": "Malware detected on a compromised system.",
+    "objects": [
+      {
+        "id": "obj-2",
+        "type": "indicator",
+        "name": "Compromised System",
+        "value": "DESKTOP-123456"
+      }
+    ]
+  }
+]
+}
+```
+
+<!-- cognis:example:end -->
+
 ## Usage — step by step
 
 1. **Install** the console script (PyPI name `cognis-repo-roast`, command `repo-roast`):

@@ -1,0 +1,14 @@
+$ repo-roast-emit --help
+
+usage: repo-roast [-h] [--version] [--no-llm] [--format {table,json}] [repo]
+
+Let an AI roast (and improve) your repo.
+
+positional arguments:
+  repo
+
+options:
+  -h, --help            show this help message and exit
+  --version             show program's version number and exit
+  --no-llm              heuristic roast only (no model)
+  --format {table,json}
